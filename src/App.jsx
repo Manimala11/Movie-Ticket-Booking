@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./Components/Main"
 import Card from "./Components/Card";
 import Header from "./Components/Header";
-import AddToCart from "./Components/AddTOCart";
+import AddToCart from "./Components/AddToCart";
 import LoginPage from "./Components/LoginPage";
 
 function App (){
