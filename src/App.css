@@ -1,0 +1,9 @@
+.btnposition{
+    position: relative;
+}
+.countincrease {
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    top: -5%;
+}
