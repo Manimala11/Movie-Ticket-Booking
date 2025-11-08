@@ -5,7 +5,8 @@ import App from './App.jsx'
 import CartProvider from './Context/CartProvider.jsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
-const clientId = "986833560783-bamkkfa3459geed1nhhj8653gqrdjfip.apps.googleusercontent.com";
+// const clientId = "986833560783-bamkkfa3459geed1nhhj8653gqrdjfip.apps.googleusercontent.com";
+const clientId = "98912949247-oe40753vl1n5jsalmqc0v3cngtdigkck.apps.googleusercontent.com";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

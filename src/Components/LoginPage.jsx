@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate()
 
   const handleLoginSuccess = (credentialResponse) => {
     localStorage.setItem("google_credential", credentialResponse.credential);
@@ -28,24 +30,11 @@ function LoginPage() {
     <div className="d-flex justify-content-center align-item-center bg-dark">
       <div className="card bg-dark text-light shadow-lg  p-4 my-4 border border-warning rounded-4" style={{width: '400px'}}>
         {!user ? (
+          <div>
           <h3 className="text-center mb-4 ">🎬 Log in</h3>
-        ) : (
-          <h3 className="text-center mb-4 ">🎬 Log Out</h3>
-        )}
-        
- 
-        {!user ? (
           <div className="d-flex justify-content-center mb-3">
             <GoogleLogin onSuccess={handleLoginSuccess} onError={handleLoginError} />
           </div>
-        ) : (
-            <button onClick={handleLogout} className="btn btn-danger w-100 fw-bold">
-            🚪 Logout
-            </button>   
-        )}
-
-        {!user && (
-          <>
             <div className="text-center text-warning mb-3">or</div>
             <form>
               <div className="mb-3">
@@ -71,18 +60,10 @@ function LoginPage() {
               </button>
 
             </form>
-          </>
-        )}
-
-         {user && (
-          <div className="alert alert-success mt-3" role="alert">
-            ✅ Logged in!
           </div>
+        ) : (
+          navigate('/')
         )}
-
-         <p className="text-center mt-3">
-          New user? <a href="#" className="text-decoration-none text-warning">Register Now</a>
-        </p>
 
       </div>
     </div>
