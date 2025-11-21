@@ -41,7 +41,6 @@ function LoginPage() {
   
   return (
     <div className="d-flex justify-content-center align-items-center bg-dark">
-      <ToastContainer/>
       <div className="card bg-dark text-light shadow-lg  p-4 my-4 border border-warning rounded-4" style={{width: '400px'}}>
           <div>
           <h3 className="text-center mb-4 ">🎬 Log in</h3>
