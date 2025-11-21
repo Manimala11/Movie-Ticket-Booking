@@ -9,7 +9,7 @@ import '../App.css';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { count } = useContext(CartContext);
+  const { count, setCartItem, setCount } = useContext(CartContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -25,10 +25,9 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('google_credential');
-    localStorage.removeItem('cart_items');
-    localStorage.removeItem('cart_count');
     setIsLoggedIn(false);
-    window.dispatchEvent(new Event("storage"));
+    setCartItem([]);
+    setCount(0);
     navigate('/');
   };
 
