@@ -15,9 +15,22 @@ const CartProvider = ({ children }) => {
   });
 
   useEffect(() => {
-        localStorage.setItem("cart_items", JSON.stringify(cartItem));
-        localStorage.setItem("cart_count", JSON.stringify(count));
-    }, [cartItem, count]);
+    localStorage.setItem('cart_items', JSON.stringify(cartItem));
+    localStorage.setItem('cart_count', JSON.stringify(count));
+  }, [cartItem, count]);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const credential = localStorage.getItem('google_credential');
+      if (!credential) {
+        setCartItem([]);
+        setCount(0);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   const addToCart = (item) => {
     const exists = cartItem.find((cart) => cart._id === item._id);
